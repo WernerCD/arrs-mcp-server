@@ -13,7 +13,8 @@
 | **Radarr4k** | Separate Radarr instance for 4K content only |
 | **Plex** | Media server for streaming content |
 | **Sabnzbd** | Usenet download client |
-| **Overseerr** | Media request management (future scope) |
+| **Overseerr** | Media request management and user requests |
+| **TMDB** | The Movie Database - primary source for movie metadata |
 | **\*arr apps** | Collective term for Sonarr, Radarr, Lidarr, etc. |
 
 ## MCP (Model Context Protocol)
@@ -31,7 +32,7 @@
 | Term | Definition |
 |------|------------|
 | **TVDB** | TheTVDB - database of TV series metadata |
-| **TMDB** | The Movie Database - movie metadata source |
+| **TMDB API** | The Movie Database API - used for collection and recommendation data |
 | **Quality Profile** | Settings defining acceptable video quality |
 | **Root Folder** | Base directory for storing media |
 | **Queue** | Current download queue |
@@ -54,3 +55,5 @@
 | **Service-Specific Tools** | Admin/troubleshooting tools with service prefix (`sonarr_queue`) |
 | **quality parameter** | `'hd'` (default) or `'4k'` to route movie requests to Radarr or Radarr4k |
 | **Service Module** | Self-contained directory for each service under `src/services/` |
+| **Collection** | TMDB concept - a franchise or series of related movies (e.g., Star Wars Collection) |
+| **Collection Completion** | Finding movies you're missing from a franchise you've started collecting |

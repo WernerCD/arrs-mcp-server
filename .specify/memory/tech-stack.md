@@ -57,6 +57,11 @@ PLEX_TOKEN=your-plex-token
 
 SABNZBD_URL=https://your-sabnzbd-url.com
 SABNZBD_API_KEY=your-api-key
+
+OVERSEERR_URL=https://your-overseerr-url.com
+OVERSEERR_API_KEY=your-api-key
+
+TMDB_API_KEY=your-tmdb-api-key
 ```
 
 ### Config File Alternative
@@ -82,6 +87,13 @@ SABNZBD_API_KEY=your-api-key
   "sabnzbd": {
     "url": "https://...",
     "apiKey": "..."
+  },
+  "overseerr": {
+    "url": "https://...",
+    "apiKey": "..."
+  },
+  "tmdb": {
+    "apiKey": "..."
   }
 }
 ```
@@ -101,7 +113,9 @@ arrs-mcp-server/
 │   │   │   └── index.ts      # Exports
 │   │   ├── radarr/           # (Phase 0020)
 │   │   ├── plex/             # (Phase 0030)
-│   │   └── sabnzbd/          # (Phase 0040)
+│   │   ├── sabnzbd/          # (Phase 0040)
+│   │   ├── overseerr/        # (Phase 0060)
+│   │   └── tmdb/             # (Phase 0070)
 │   ├── tools/                # Cross-service tools
 │   │   ├── index.ts          # Tool registration exports
 │   │   ├── system-health.ts  # Health check across services

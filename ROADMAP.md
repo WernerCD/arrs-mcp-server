@@ -71,7 +71,11 @@ specflow phase list --complete
 
 | Gate       | Phase | What User Verifies           |
 | ---------- | ----- | ---------------------------- |
-| **Gate 1** | 0010  | MCP server starts without errors, works with Claude Desktop and Code, can search/add/list series, queue with progress/ETA/errors, stuck imports workflow, blacklist/re-search, health check |
+| **Gate 1** | 0010  | MCP server starts, Sonarr tools work in Claude Desktop/Code |
+| **Gate 2** | 0020  | Movie search/add works, 4K routing is safe (HD default), both Radarr instances accessible |
+| **Gate 3** | 0030  | Library search finds content, watch status correct, cleanup tools identify candidates |
+| **Gate 4** | 0040  | Download queue visible, pause/resume works, cross-references show *arr source |
+| **Gate 5** | 0050  | **USER GATE**: All core workflows work end-to-end, large libraries handled, error messages helpful |
 
 ---
 
@@ -89,6 +93,24 @@ If a phase is running long:
 1. Cut scope to MVP for that phase
 2. Document deferred items in `specs/[phase]/checklists/deferred.md`
 3. Prioritize verification gate requirements
+
+---
+
+## Design Decisions (Established in Phase 0010)
+
+These decisions apply to all phases:
+
+| Decision | Value | Rationale |
+|----------|-------|-----------|
+| HTTP Client | Native `fetch` | No external dependencies, sufficient for needs |
+| Output Format | Simple text | Readable by Claude, token-efficient |
+| Parameter Types | `z.coerce.number()` | MCP passes numbers as strings |
+| Module Pattern | `client.ts`/`types.ts`/`tools.ts` per service | Clean separation, testable |
+| List Tools | Filtering + sorting + display options | User-requested in Phase 0010 for flexibility |
+| Config Priority | Env vars > config.json > defaults | Secrets via env, convenience via file |
+| Zod Version | ^3.25 (not v4) | MCP SDK compatibility requirement |
+| stdout | Reserved for MCP protocol only | Logging must go to stderr |
+| 4K Safety | `quality` defaults to `'hd'` | Prevent accidental 4K downloads (Constitution Principle II) |
 
 ---
 

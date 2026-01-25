@@ -1,0 +1,30 @@
+{
+  "schema_version": "3.0",
+  "project": {
+    "id": "4f0759a5-a9bd-4603-87c6-ed0ba97621bd",
+    "name": "arrs-mcp-server",
+    "path": "/Users/ppatterson/dev/arrs-mcp-server"
+  },
+  "last_updated": "2026-01-25T03:27:36.148Z",
+  "orchestration": {
+    "phase": {
+      "id": null,
+      "number": null,
+      "name": null,
+      "branch": null,
+      "status": "not_started"
+    },
+    "next_phase": null,
+    "step": {
+      "current": "design",
+      "index": 0,
+      "status": "not_started"
+    },
+    "implement": null
+  },
+  "health": {
+    "status": "initializing",
+    "last_check": "2026-01-25T03:27:36.147Z",
+    "issues": []
+  }
+}

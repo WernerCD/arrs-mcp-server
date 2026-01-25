@@ -159,8 +159,10 @@ export function registerSonarrTools(server: McpServer, config: Config): void {
         const profiles = await client.getProfiles();
         const folders = await client.getRootFolders();
 
-        // Find or use default profile
-        let profileId = profiles[0]?.id;
+        // Find or use default profile (prefer HD-1080p as default)
+        const defaultProfile =
+          profiles.find((p) => p.name === "HD-1080p") || profiles[0];
+        let profileId = defaultProfile?.id;
         if (quality_profile) {
           const found = profiles.find(
             (p) => p.name.toLowerCase() === quality_profile.toLowerCase(),

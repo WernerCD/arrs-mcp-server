@@ -232,8 +232,11 @@ export function registerRadarrTools(server: McpServer, config: Config): void {
         const profiles = await client.getProfiles();
         const folders = await client.getRootFolders();
 
-        // Find or use default profile
-        let profileId = profiles[0]?.id;
+        // Find or use default profile (HD-1080p for HD, Ultra-HD for 4K)
+        const defaultProfileName = quality === "4k" ? "Ultra-HD" : "HD-1080p";
+        const defaultProfile =
+          profiles.find((p) => p.name === defaultProfileName) || profiles[0];
+        let profileId = defaultProfile?.id;
         if (quality_profile) {
           const found = profiles.find(
             (p) => p.name.toLowerCase() === quality_profile.toLowerCase(),

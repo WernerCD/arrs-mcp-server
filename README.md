@@ -9,7 +9,7 @@ Ask Claude to add a show, check what's downloading, clean up your library, or co
 **Prerequisites**: Node.js 20+ and pnpm.
 
 ```bash
-git clone https://github.com/yourusername/arrs-mcp-server.git
+git clone https://github.com/wiseyoda/arrs-mcp-server.git
 cd arrs-mcp-server
 pnpm install
 pnpm build
